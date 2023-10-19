@@ -63,3 +63,11 @@ app.*.map.json
 *.js_
 *.js.deps
 *.js.map
+
+# Only need android/ for Android projects
+/linux/
+/windows/
+/ios/
+/macos/
+/web/
+```
