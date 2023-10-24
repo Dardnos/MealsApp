@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:meals/screens/tabs.dart';
 
+/// Define the application's theme and main function.
 final theme = ThemeData(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
@@ -21,6 +22,7 @@ void main() {
   );
 }
 
+/// Define the App widget as the root of the application.
 class App extends StatelessWidget {
   const App({super.key});
 

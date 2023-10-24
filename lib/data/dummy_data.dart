@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:meals/models/category.dart';
 import 'package:meals/models/meal.dart';
 
+/// Define a list of available categories
 // Constants in Dart should be written in lowerCamelcase.
 const availableCategories = [
   Category(
@@ -57,6 +58,7 @@ const availableCategories = [
   ),
 ];
 
+/// Define a list of dummy meals
 const dummyMeals = [
   Meal(
     id: 'm1',

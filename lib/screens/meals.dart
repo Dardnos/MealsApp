@@ -4,6 +4,7 @@ import 'package:meals/models/meal.dart';
 import 'package:meals/screens/meal_details.dart';
 import 'package:meals/widgets/meal_item.dart';
 
+/// Define a MealsScreen widget for displaying a list of meals.
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
@@ -14,6 +15,7 @@ class MealsScreen extends StatelessWidget {
   final String? title;
   final List<Meal> meals;
 
+  /// Function to navigate to the MealDetailsScreen for a selected meal.
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(

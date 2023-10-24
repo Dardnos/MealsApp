@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:meals/models/category.dart';
 
+// Define a CategoryGridItem widget for displaying a category grid item.
 class CategoryGridItem extends StatelessWidget {
   const CategoryGridItem({
     super.key,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Define a MealItemTrait widget for displaying a trait associated with a meal.
 class MealItemTrait extends StatelessWidget {
   const MealItemTrait({
     super.key,

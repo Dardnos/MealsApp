@@ -6,6 +6,7 @@ import 'package:meals/widgets/category_grid_item.dart';
 import 'package:meals/screens/meals.dart';
 import 'package:meals/models/category.dart';
 
+/// Define a CategoriesScreen widget for displaying meal categories.
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({
     super.key,
@@ -18,6 +19,7 @@ class CategoriesScreen extends StatefulWidget {
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
+/// Define the state of the CategoriesScreen widget.
 class _CategoriesScreenState extends State<CategoriesScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
@@ -42,6 +44,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
     super.dispose();
   }
 
+  /// Function to navigate to the MealsScreen for a selected category.
   void _selectCategory(BuildContext context, Category category) {
     final filteredMeals = widget.availableMeals
         .where((meal) => meal.categories.contains(category.id))

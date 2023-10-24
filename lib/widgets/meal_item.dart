@@ -4,6 +4,7 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:meals/widgets/meal_item_trait.dart';
 import 'package:meals/models/meal.dart';
 
+/// Define a MealItem widget for displaying a meal item.
 class MealItem extends StatelessWidget {
   const MealItem({
     super.key,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Define a MainDrawer widget for the application's main navigation drawer.
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key, required this.onSelectScreen});
 

@@ -1,3 +1,4 @@
+/// Define enums for meal complexity and affordability
 enum Complexity {
   simple,
   challenging,
@@ -10,6 +11,7 @@ enum Affordability {
   luxurious,
 }
 
+/// Define the Meal data model
 class Meal {
   const Meal({
     required this.id,
@@ -27,6 +29,7 @@ class Meal {
     required this.isVegetarian,
   });
 
+  /// Meal properties
   final String id;
   final List<String> categories;
   final String title;
