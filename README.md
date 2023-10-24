@@ -131,3 +131,9 @@ making it easier to expand and improve the app's functionality in the future.
 
 The following screenshots show the app's user interface:
 
+![Main Screen](doc/screenshots/main.png)
+![Category Screen](doc/screenshots/category.png)
+![Filter Screen](doc/screenshots/filters.png)
+![Favorites Screen](doc/screenshots/favorites.png)
+
+
