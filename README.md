@@ -248,7 +248,12 @@ classDiagram
 class AddNewMeal
 AddNewMeal : +createState() State<AddNewMeal>
 StatefulWidget <|-- AddNewMeal
+```
 
+Diagram 3: The newly added AddNewMeal and _AddNewMealState classes
+
+```mermaid
+classDiagram
 class _AddNewMealState
 _AddNewMealState : +uuid Uuid
 _AddNewMealState o-- Uuid
