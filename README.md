@@ -4,6 +4,13 @@
 This document provides an overview of the app's architecture, user stories, specifications, and file/folder structure based on the provided code structure. 
 The app is designed to help users explore and manage meal categories, view meal details, and apply filters to customize their meal preferences.
 
+
+## New Features
+
+### Add Meal
+The app now allows users to add a new meal with details such as title, image, ingredients, steps, duration, complexity, affordability, and dietary preferences.
+Users can save the meal and have it displayed in the list of available meals.
+
 ## App Architecture
 
 ### User Interface
@@ -14,6 +21,7 @@ The app follows a typical Flutter application structure, with screens and widget
     - `FiltersScreen`: Allows users to set meal filters.
     - `MealsScreen`: Lists meals based on selected categories.
     - `MealDetailsScreen`: Shows details of a specific meal.
+    - `AddNewMeal`: Allows users to add a new meal.
     - `TabsScreen`: Implements the bottom navigation tabs for Categories and Favorites.
 
 2. **Widgets**: Reusable UI components used throughout the app.
@@ -50,32 +58,28 @@ The app's main entry point is defined in `main.dart`. It sets up the app's theme
    - As a user, I want to add a new meal with details such as title, image, ingredients, steps, duration, complexity, affordability, and dietary preferences.
    - I want to save the meal and have it displayed in the list of available meals.
 
-2. **Remove Meal**
-   - As a user, I want to remove an existing meal from the list of available meals.
-   - I want to have the option to undo the removal in case of accidental deletion.
-
-3. **View Meals**
+2. **View Meals**
    - As a user, I want to view a list of all available meals.
    - I want to see each meal's title, image, and basic information.
 
-4. **View Meal Details**
+3. **View Meal Details**
    - As a user, I want to view the details of a specific meal when I select it from the list.
    - I want to see information such as ingredients, steps, duration, complexity, affordability, and dietary preferences.
    - I also want to have the option to add or remove the meal from my favorites.
 
-5. **Filter Meals**
+4. **Filter Meals**
    - As a user, I want to filter available meals based on dietary preferences, such as gluten-free, lactose-free, vegetarian, and vegan.
    - I want the filtered meals to update based on my selections.
 
-6. **View Favorites**
+5. **View Favorites**
    - As a user, I want to view a list of my favorite meals.
    - I want to see each meal's title, image, and basic information.
 
-7. **Visualize Meal Categories**
+6. **Visualize Meal Categories**
    - As a user, I want to see a visual representation (e.g., a grid of categories) of available meal categories.
    - I want to select a category and see a list of meals that belong to that category.
 
-8. **Adjust Filters**
+7. **Adjust Filters**
    - As a user, I want to adjust my dietary preference filters.
    - I want to customize my filters for gluten-free, lactose-free, vegetarian, and vegan meals.
 
@@ -85,8 +89,9 @@ The app's main entry point is defined in `main.dart`. It sets up the app's theme
 - **Meals**: When a category is selected, the app displays a list of meals within that category.
 - **Meal Details**: Users can click on a meal to view its details, including ingredients and steps.
 - **Filters**: Users can set filters for dietary preferences to customize meal lists.
+- **New Meal**: Users can add a new meal with details such as title, image, ingredients, steps, duration, complexity, affordability, and dietary preferences.
 - **Favorites**: Users can mark meals as favorites for easy access.
-- **Navigation**: Users can navigate between Categories and Favorites using a bottom navigation bar.
+- **Navigation**: Users can navigate between Categories, Add New Meal and Favorites using a bottom navigation bar.
 - **Theme**: The app uses a custom theme with a dark color scheme and custom fonts.
 
 ## File and Folder Structure
@@ -105,6 +110,7 @@ The app's files and folders are organized as follows:
     - filters.dart (Filters Screen)
     - meal_details.dart (Meal Details Screen)
     - meals.dart (Meals Screen)
+    - new_meal.dart (Add New Meal Screen)
     - tabs.dart (Tabs Screen, entry point)
   - widgets/ (Folder for Custom Widgets)
     - category_grid_item.dart (Definition of the `CategoryGridItem` widget)
@@ -115,7 +121,6 @@ The app's files and folders are organized as follows:
 
 This organized structure ensures maintainability and modularity, 
 making it easier to expand and improve the app's functionality in the future.
-
 
 ## Class Diagram
 ```mermaid
