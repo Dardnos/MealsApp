@@ -122,9 +122,13 @@ The app's files and folders are organized as follows:
 This organized structure ensures maintainability and modularity, 
 making it easier to expand and improve the app's functionality in the future.
 
-## Class Diagram
+## Class Diagrams
+
+Detailed class diagrams are provided below:
+
+Diagram 1: App, Category, Meal classes
 ```mermaid
-classDiagram           
+classDiagram
 class App
 App : +build() Widget
 StatelessWidget <|-- App
@@ -151,6 +155,11 @@ Meal : +isGlutenFree bool
 Meal : +isLactoseFree bool
 Meal : +isVegan bool
 Meal : +isVegetarian bool
+```
+
+Diagram 2: Complexity, Affordability, Filter classes
+```mermaid
+classDiagram
 
 class Complexity
 <<enumeration>> Complexity
@@ -198,7 +207,12 @@ Filter o-- Filter
 Filter : +vegan$ Filter
 Filter o-- Filter
 Enum <|.. Filter
+```
 
+Diagram 3: CategoriesScreen, _CategoriesScreenState, FiltersScreen, MealsScreen, MealDetailsScreen classes
+
+```mermaid
+classDiagram
 class CategoriesScreen
 CategoriesScreen : +availableMeals List~Meal~
 CategoriesScreen : +createState() State<CategoriesScreen>
@@ -230,7 +244,12 @@ MealDetailsScreen : +meal Meal
 MealDetailsScreen o-- Meal
 MealDetailsScreen : +build() Widget
 ConsumerWidget <|-- MealDetailsScreen
+```
 
+Diagram 4: AddNewMeal, _AddNewMealState, TabsScreen, _TabsScreenState, CategoryGridItem, MainDrawer, MealItem, MealItemTrait classes
+
+```mermaid
+classDiagram
 class AddNewMeal
 AddNewMeal : +createState() State<AddNewMeal>
 StatefulWidget <|-- AddNewMeal
@@ -304,7 +323,6 @@ MealItemTrait o-- IconData
 MealItemTrait : +label String
 MealItemTrait : +build() Widget
 StatelessWidget <|-- MealItemTrait
-
 ```
 
 ## Peer Review
