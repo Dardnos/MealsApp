@@ -256,9 +256,7 @@ Diagram 3: The newly added AddNewMeal and _AddNewMealState classes
 classDiagram
 class _AddNewMealState
 _AddNewMealState : +uuid Uuid
-_AddNewMealState o-- Uuid
 _AddNewMealState : +titleController TextEditingController
-_AddNewMealState o-- TextEditingController
 _AddNewMealState : +selectedCategories List~String~
 _AddNewMealState : +imageUrlController TextEditingController
 _AddNewMealState : +durationController TextEditingController
