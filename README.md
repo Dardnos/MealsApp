@@ -128,7 +128,7 @@ Detailed class diagrams are provided below:
 
 Diagram 1: App, Category, Meal, Complexity, Affordability, Filter classes
 ```mermaid
-classDiagram
+classDiagram           
 class App
 App : +build() Widget
 StatelessWidget <|-- App
@@ -202,12 +202,7 @@ Filter o-- Filter
 Filter : +vegan$ Filter
 Filter o-- Filter
 Enum <|.. Filter
-```
 
-Diagram 2: CategoriesScreen, _CategoriesScreenState, FiltersScreen, MealsScreen, MealDetailsScreen classes
-
-```mermaid
-classDiagram
 class CategoriesScreen
 CategoriesScreen : +availableMeals List~Meal~
 CategoriesScreen : +createState() State<CategoriesScreen>
@@ -239,27 +234,21 @@ MealDetailsScreen : +meal Meal
 MealDetailsScreen o-- Meal
 MealDetailsScreen : +build() Widget
 ConsumerWidget <|-- MealDetailsScreen
-```
 
-Diagram 3: The newly added AddNewMeal and _AddNewMealState classes
-
-```mermaid
-classDiagram
 class AddNewMeal
 AddNewMeal : +createState() State<AddNewMeal>
 StatefulWidget <|-- AddNewMeal
-```
 
-Diagram 3: The newly added AddNewMeal and _AddNewMealState classes
-
-```mermaid
-classDiagram
 class _AddNewMealState
 _AddNewMealState : +uuid Uuid
+_AddNewMealState o-- Uuid
 _AddNewMealState : +titleController TextEditingController
+_AddNewMealState o-- TextEditingController
 _AddNewMealState : +selectedCategories List~String~
 _AddNewMealState : +imageUrlController TextEditingController
+_AddNewMealState o-- TextEditingController
 _AddNewMealState : +durationController TextEditingController
+_AddNewMealState o-- TextEditingController
 _AddNewMealState : +selectedAffordability String
 _AddNewMealState : +selectedComplexity String
 _AddNewMealState : +ingredients List~String~
@@ -270,16 +259,12 @@ _AddNewMealState : +isVegetarian bool
 _AddNewMealState : +isLactoseFree bool
 _AddNewMealState : +newIngredient String
 _AddNewMealState : +newStep String
-_AddNewMealState : +affordabilityValues Map~String, Affordability~
-_AddNewMealState : +complexityValues Map~String, Complexity~
+_AddNewMealState : -_addIngredient() void
+_AddNewMealState : -_addStep() void
+_AddNewMealState : -_addNewMeal() void
 _AddNewMealState : +build() Widget
 State <|-- _AddNewMealState
-```
 
-Diagram 4: TabsScreen, _TabsScreenState, CategoryGridItem, MainDrawer, MealItem, MealItemTrait classes
-
-```mermaid
-classDiagram
 class TabsScreen
 TabsScreen : +createState() ConsumerState<TabsScreen>
 ConsumerStatefulWidget <|-- TabsScreen
