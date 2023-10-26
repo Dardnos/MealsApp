@@ -122,11 +122,10 @@ The app's files and folders are organized as follows:
 This organized structure ensures maintainability and modularity, 
 making it easier to expand and improve the app's functionality in the future.
 
-## Class Diagrams
+## Class Diagram
 
-Detailed class diagrams are provided below:
+The following class diagram shows the app's class structure:
 
-Diagram 1: App, Category, Meal, Complexity, Affordability, Filter classes
 ```mermaid
 classDiagram           
 class App
