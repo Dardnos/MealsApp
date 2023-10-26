@@ -119,6 +119,186 @@ making it easier to expand and improve the app's functionality in the future.
 
 ## Class Diagram
 ```mermaid
+classDiagram           
+class App
+App : +build() Widget
+StatelessWidget <|-- App
+
+class Category
+Category : +id String
+Category : +title String
+Category : +color Color
+Category o-- Color
+
+class Meal
+Meal : +id String
+Meal : +categories List~String~
+Meal : +title String
+Meal : +imageUrl String
+Meal : +ingredients List~String~
+Meal : +steps List~String~
+Meal : +duration int
+Meal : +complexity Complexity
+Meal o-- Complexity
+Meal : +affordability Affordability
+Meal o-- Affordability
+Meal : +isGlutenFree bool
+Meal : +isLactoseFree bool
+Meal : +isVegan bool
+Meal : +isVegetarian bool
+
+class Complexity
+<<enumeration>> Complexity
+Complexity : +index int
+Complexity : +values$ List~Complexity~
+Complexity : +simple$ Complexity
+Complexity o-- Complexity
+Complexity : +challenging$ Complexity
+Complexity o-- Complexity
+Complexity : +hard$ Complexity
+Complexity o-- Complexity
+Enum <|.. Complexity
+
+class Affordability
+<<enumeration>> Affordability
+Affordability : +index int
+Affordability : +values$ List~Affordability~
+Affordability : +affordable$ Affordability
+Affordability o-- Affordability
+Affordability : +pricey$ Affordability
+Affordability o-- Affordability
+Affordability : +luxurious$ Affordability
+Affordability o-- Affordability
+Enum <|.. Affordability
+
+class FavoriteMealsNotifier
+FavoriteMealsNotifier : +toggleMealFavoriteStatus() bool
+StateNotifier <|-- FavoriteMealsNotifier
+
+class FiltersNotifier
+FiltersNotifier : +setFilters() void
+FiltersNotifier : +setFilter() void
+StateNotifier <|-- FiltersNotifier
+
+class Filter
+<<enumeration>> Filter
+Filter : +index int
+Filter : +values$ List~Filter~
+Filter : +glutenFree$ Filter
+Filter o-- Filter
+Filter : +lactoseFree$ Filter
+Filter o-- Filter
+Filter : +vegetarian$ Filter
+Filter o-- Filter
+Filter : +vegan$ Filter
+Filter o-- Filter
+Enum <|.. Filter
+
+class CategoriesScreen
+CategoriesScreen : +availableMeals List~Meal~
+CategoriesScreen : +createState() State<CategoriesScreen>
+StatefulWidget <|-- CategoriesScreen
+
+class _CategoriesScreenState
+_CategoriesScreenState : -_animationController AnimationController
+_CategoriesScreenState o-- AnimationController
+_CategoriesScreenState : +initState() void
+_CategoriesScreenState : +dispose() void
+_CategoriesScreenState : -_selectCategory() void
+_CategoriesScreenState : +build() Widget
+State <|-- _CategoriesScreenState
+SingleTickerProviderStateMixin <|-- _CategoriesScreenState
+
+class FiltersScreen
+FiltersScreen : +build() Widget
+ConsumerWidget <|-- FiltersScreen
+
+class MealsScreen
+MealsScreen : +title String?
+MealsScreen : +meals List~Meal~
+MealsScreen : +selectMeal() void
+MealsScreen : +build() Widget
+StatelessWidget <|-- MealsScreen
+
+class MealDetailsScreen
+MealDetailsScreen : +meal Meal
+MealDetailsScreen o-- Meal
+MealDetailsScreen : +build() Widget
+ConsumerWidget <|-- MealDetailsScreen
+
+class AddNewMeal
+AddNewMeal : +createState() State<AddNewMeal>
+StatefulWidget <|-- AddNewMeal
+
+class _AddNewMealState
+_AddNewMealState : +uuid Uuid
+_AddNewMealState o-- Uuid
+_AddNewMealState : +titleController TextEditingController
+_AddNewMealState o-- TextEditingController
+_AddNewMealState : +selectedCategories List~String~
+_AddNewMealState : +imageUrlController TextEditingController
+_AddNewMealState o-- TextEditingController
+_AddNewMealState : +durationController TextEditingController
+_AddNewMealState o-- TextEditingController
+_AddNewMealState : +selectedAffordability String
+_AddNewMealState : +selectedComplexity String
+_AddNewMealState : +ingredients List~String~
+_AddNewMealState : +steps List~String~
+_AddNewMealState : +isGlutenFree bool
+_AddNewMealState : +isVegan bool
+_AddNewMealState : +isVegetarian bool
+_AddNewMealState : +isLactoseFree bool
+_AddNewMealState : +newIngredient String
+_AddNewMealState : +newStep String
+_AddNewMealState : +affordabilityValues Map~String, Affordability~
+_AddNewMealState : +complexityValues Map~String, Complexity~
+_AddNewMealState : -_addIngredient() void
+_AddNewMealState : -_addStep() void
+_AddNewMealState : -_addNewMeal() void
+_AddNewMealState : +build() Widget
+State <|-- _AddNewMealState
+
+class TabsScreen
+TabsScreen : +createState() ConsumerState<TabsScreen>
+ConsumerStatefulWidget <|-- TabsScreen
+
+class _TabsScreenState
+_TabsScreenState : -_selectedPageIndex int
+_TabsScreenState : -_selectPage() void
+_TabsScreenState : -_setScreen() void
+_TabsScreenState : +build() Widget
+ConsumerState <|-- _TabsScreenState
+
+class CategoryGridItem
+CategoryGridItem : +category Category
+CategoryGridItem o-- Category
+CategoryGridItem : +onSelectCategory void Function
+CategoryGridItem o-- void Function
+CategoryGridItem : +build() Widget
+StatelessWidget <|-- CategoryGridItem
+
+class MainDrawer
+MainDrawer : +onSelectScreen void FunctionString
+MainDrawer o-- void FunctionString
+MainDrawer : +build() Widget
+StatelessWidget <|-- MainDrawer
+
+class MealItem
+MealItem : +meal Meal
+MealItem o-- Meal
+MealItem : +onSelectMeal void FunctionMeal
+MealItem o-- void FunctionMeal
+MealItem : +complexityText String
+MealItem : +affordabilityText String
+MealItem : +build() Widget
+StatelessWidget <|-- MealItem
+
+class MealItemTrait
+MealItemTrait : +icon IconData
+MealItemTrait o-- IconData
+MealItemTrait : +label String
+MealItemTrait : +build() Widget
+StatelessWidget <|-- MealItemTrait
 
 ```
 
