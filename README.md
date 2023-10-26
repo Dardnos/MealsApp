@@ -126,7 +126,7 @@ making it easier to expand and improve the app's functionality in the future.
 
 Detailed class diagrams are provided below:
 
-Diagram 1: App, Category, Meal classes
+Diagram 1: App, Category, Meal, Complexity, Affordability, Filter classes
 ```mermaid
 classDiagram
 class App
@@ -155,11 +155,6 @@ Meal : +isGlutenFree bool
 Meal : +isLactoseFree bool
 Meal : +isVegan bool
 Meal : +isVegetarian bool
-```
-
-Diagram 2: Complexity, Affordability, Filter classes
-```mermaid
-classDiagram
 
 class Complexity
 <<enumeration>> Complexity
@@ -209,7 +204,7 @@ Filter o-- Filter
 Enum <|.. Filter
 ```
 
-Diagram 3: CategoriesScreen, _CategoriesScreenState, FiltersScreen, MealsScreen, MealDetailsScreen classes
+Diagram 2: CategoriesScreen, _CategoriesScreenState, FiltersScreen, MealsScreen, MealDetailsScreen classes
 
 ```mermaid
 classDiagram
@@ -246,7 +241,7 @@ MealDetailsScreen : +build() Widget
 ConsumerWidget <|-- MealDetailsScreen
 ```
 
-Diagram 4: AddNewMeal, _AddNewMealState, TabsScreen, _TabsScreenState, CategoryGridItem, MainDrawer, MealItem, MealItemTrait classes
+Diagram 3: The newly added AddNewMeal and _AddNewMealState classes
 
 ```mermaid
 classDiagram
@@ -281,7 +276,12 @@ _AddNewMealState : -_addStep() void
 _AddNewMealState : -_addNewMeal() void
 _AddNewMealState : +build() Widget
 State <|-- _AddNewMealState
+```
 
+Diagram 4: TabsScreen, _TabsScreenState, CategoryGridItem, MainDrawer, MealItem, MealItemTrait classes
+
+```mermaid
+classDiagram
 class TabsScreen
 TabsScreen : +createState() ConsumerState<TabsScreen>
 ConsumerStatefulWidget <|-- TabsScreen
