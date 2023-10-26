@@ -136,4 +136,9 @@ The following screenshots show the app's user interface:
 ![Filter Screen](doc/screenshots/filters.png)
 ![Favorites Screen](doc/screenshots/favorites.png)
 
+### New Screenshots (after adding new features):
 
+![New Main Screen](doc/screenshots/newMain.png)
+![New Meal pt.1](doc/screenshots/newMeal1.png)
+![New Meal pt.2](doc/screenshots/newMeal2.png)
+![New Meal pt.3](doc/screenshots/newMeal3.png)
