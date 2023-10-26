@@ -256,9 +256,7 @@ _AddNewMealState : +titleController TextEditingController
 _AddNewMealState o-- TextEditingController
 _AddNewMealState : +selectedCategories List~String~
 _AddNewMealState : +imageUrlController TextEditingController
-_AddNewMealState o-- TextEditingController
 _AddNewMealState : +durationController TextEditingController
-_AddNewMealState o-- TextEditingController
 _AddNewMealState : +selectedAffordability String
 _AddNewMealState : +selectedComplexity String
 _AddNewMealState : +ingredients List~String~
