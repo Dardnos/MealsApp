@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 import 'package:meals/models/category.dart';
 import 'package:meals/models/meal.dart';
@@ -58,10 +59,12 @@ const availableCategories = [
   ),
 ];
 
+const uuid = Uuid();
+
 /// Define a list of dummy meals
-const dummyMeals = [
+final dummyMeals = [
   Meal(
-    id: 'm1',
+    id: uuid.v4(),
     categories: [
       'c1',
       'c2',
@@ -95,7 +98,7 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm2',
+    id: uuid.v4(),
     categories: [
       'c2',
     ],
@@ -123,7 +126,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm3',
+    id: uuid.v4(),
     categories: [
       'c2',
       'c3',
@@ -155,7 +158,7 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm4',
+    id: uuid.v4(),
     categories: [
       'c4',
     ],
@@ -190,7 +193,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm5',
+    id: uuid.v4(),
     categories: [
       'c2'
           'c5',
@@ -226,7 +229,7 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm6',
+    id: uuid.v4(),
     categories: [
       'c6',
       'c10',
@@ -262,7 +265,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm7',
+    id: uuid.v4(),
     categories: [
       'c7',
     ],
@@ -293,7 +296,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm8',
+    id: uuid.v4(),
     categories: [
       'c8',
     ],
@@ -326,7 +329,7 @@ const dummyMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm9',
+    id: uuid.v4(),
     categories: [
       'c9',
     ],
@@ -375,7 +378,7 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm10',
+    id: uuid.v4(),
     categories: [
       'c2',
       'c5',
