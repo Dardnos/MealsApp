@@ -272,9 +272,6 @@ _AddNewMealState : +newIngredient String
 _AddNewMealState : +newStep String
 _AddNewMealState : +affordabilityValues Map~String, Affordability~
 _AddNewMealState : +complexityValues Map~String, Complexity~
-_AddNewMealState : -_addIngredient() void
-_AddNewMealState : -_addStep() void
-_AddNewMealState : -_addNewMeal() void
 _AddNewMealState : +build() Widget
 State <|-- _AddNewMealState
 ```
