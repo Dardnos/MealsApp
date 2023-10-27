@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals/providers/meals_provider.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:meals/models/meal.dart';
 import 'package:meals/data/dummy_data.dart';
 
-class AddNewMeal extends StatefulWidget {
-  const AddNewMeal({super.key});
+class AddNewMeal extends ConsumerStatefulWidget {
+  const AddNewMeal({required this.finishedFunction,super.key});
+  final Function finishedFunction;
 
   @override
-  State<AddNewMeal> createState() => _AddNewMealState();
+  ConsumerState<AddNewMeal> createState() => _AddNewMealState();
 }
 
-class _AddNewMealState extends State<AddNewMeal> {
+class _AddNewMealState extends ConsumerState<AddNewMeal> {
   final uuid = const Uuid();
   final TextEditingController titleController = TextEditingController();
-  final List<String> selectedCategories =
-      []; // List to store selected categories
-  final TextEditingController imageUrlController = TextEditingController(
-      text:
-          'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg');
+  final List<String> selectedCategories = []; // List to store selected categories
+  final TextEditingController imageUrlController = TextEditingController(text:'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg');
   final TextEditingController durationController = TextEditingController();
   String selectedAffordability = 'affordable'; // Initial selection
   String selectedComplexity = 'simple'; // Initial selection
@@ -72,8 +72,7 @@ class _AddNewMealState extends State<AddNewMeal> {
       title: titleController.text,
       imageUrl: imageUrlController.text,
       duration: int.parse(durationController.text),
-      affordability: affordabilityValues[selectedAffordability] ??
-          Affordability.affordable,
+      affordability: affordabilityValues[selectedAffordability] ?? Affordability.affordable,
       complexity: complexityValues[selectedComplexity] ?? Complexity.simple,
       ingredients: ingredients,
       steps: steps,
@@ -82,8 +81,9 @@ class _AddNewMealState extends State<AddNewMeal> {
       isVegetarian: isVegetarian,
       isLactoseFree: isLactoseFree,
     );
+    ref.read(mealsProvider.notifier).addMeal(newMeal);
 
-    dummyMeals.add(newMeal);
+    widget.finishedFunction(0);
   }
 
   @override

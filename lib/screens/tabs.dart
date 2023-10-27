@@ -52,7 +52,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
-      activePage = const AddNewMeal();
+      activePage = AddNewMeal(finishedFunction: _selectPage);
       activePageTitle = 'Add New Meal';
     }
 
