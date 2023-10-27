@@ -309,8 +309,9 @@ StatelessWidget <|-- MealItemTrait
 
 ## Peer Review
 
+Have not been in touch with my peer reviewer. Have not had the time to communicate with the other person.
 
-
+BUT on another note, I have been working with classmates I meet after school hours and helped eachother become better.
 
 ## Screenshots
 
