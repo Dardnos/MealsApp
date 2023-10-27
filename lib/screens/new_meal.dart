@@ -6,6 +6,7 @@ import 'package:uuid/uuid.dart';
 import 'package:meals/models/meal.dart';
 import 'package:meals/data/dummy_data.dart';
 
+/// Define a stateful widget for adding a new meal
 class AddNewMeal extends ConsumerStatefulWidget {
   const AddNewMeal({required this.finishedFunction,super.key});
   final Function finishedFunction;
@@ -15,7 +16,9 @@ class AddNewMeal extends ConsumerStatefulWidget {
 }
 
 class _AddNewMealState extends ConsumerState<AddNewMeal> {
+  // Generate a unique identifier using Uuid
   final uuid = const Uuid();
+  // Define controllers for various input fields
   final TextEditingController titleController = TextEditingController();
   final List<String> selectedCategories = []; // List to store selected categories
   final TextEditingController imageUrlController = TextEditingController(text:'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg');
@@ -31,6 +34,20 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
 
   String newIngredient = ''; // Store the newly entered ingredient
   String newStep = ''; // Store the newly entered step
+
+  // Map for affordability options
+  Map<String, Affordability> affordabilityValues = {
+    'Affordable': Affordability.affordable,
+    'Pricey': Affordability.pricey,
+    'Luxurious': Affordability.luxurious,
+  };
+
+  // Map for complexity options
+  Map<String, Complexity> complexityValues = {
+    'Simple': Complexity.simple,
+    'Challenging': Complexity.challenging,
+    'Hard': Complexity.hard,
+  };
 
   // Function to add a new ingredient to the list
   void _addIngredient() {
@@ -52,19 +69,9 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
     }
   }
 
-  Map<String, Affordability> affordabilityValues = {
-    'Affordable': Affordability.affordable,
-    'Pricey': Affordability.pricey,
-    'Luxurious': Affordability.luxurious,
-  };
 
-  Map<String, Complexity> complexityValues = {
-    'Simple': Complexity.simple,
-    'Challenging': Complexity.challenging,
-    'Hard': Complexity.hard,
-  };
 
-  // Function to add a new meal to the dummyMeals list
+  /// Function to add a new meal to the dummyMeals list
   void _addNewMeal() {
     final Meal newMeal = Meal(
       id: uuid.v4(),
@@ -81,15 +88,18 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
       isVegetarian: isVegetarian,
       isLactoseFree: isLactoseFree,
     );
+    // Call the 'addMeal' function to add the new meal to the list
     ref.read(mealsProvider.notifier).addMeal(newMeal);
-
+    // Execute a callback function when the operation is finished
     widget.finishedFunction(0);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Scaffold widget for the entire page
       body: SingleChildScrollView(
+        // SingleChildScrollView to allow scrolling when keyboard is open
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -270,7 +280,6 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
               onPressed: _addIngredient,
               child: const Text('Add Ingredient'),
             ),
-            // Display the ingredients
             SizedBox(
               height: 150.0,
               child: Column(
@@ -280,6 +289,7 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
                     style: TextStyle(fontSize: 18.0, color: Colors.white),
                   ),
                   const SizedBox(height: 8.0),
+                  // Display the list of ingredients
                   Expanded(
                     child: ListView.builder(
                       itemCount: ingredients.length,
@@ -315,10 +325,9 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: _addStep,
+            onPressed: _addStep,
               child: const Text('Add Step'),
             ),
-            // Display the steps
             SizedBox(
               height: 150.0,
               child: Column(
@@ -328,6 +337,7 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
                     style: TextStyle(fontSize: 18.0, color: Colors.white),
                   ),
                   const SizedBox(height: 8.0),
+                  // Display the list of steps
                   Expanded(
                     child: ListView.builder(
                       itemCount: steps.length,
@@ -352,6 +362,7 @@ class _AddNewMealState extends ConsumerState<AddNewMeal> {
               ),
             ),
             const SizedBox(height: 16.0),
+            // Button to add a new meal
             ElevatedButton(
               onPressed: _addNewMeal,
               child: const Text('Add Meal'),
